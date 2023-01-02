@@ -45,8 +45,8 @@ download('https://github.com/Lojaleto/VK_Cup_2022_quali/raw/main/datasets/VK_Cup
          './datasets/VK_Cup_2022_quali/test.csv')
 download('https://github.com/Lojaleto/VK_Cup_2022_quali/raw/main/datasets/VK_Cup_2022_quali/sample_submission.csv',
          './datasets/VK_Cup_2022_quali/sample_submission.csv')
-download('https://github.com/Lojaleto/VK_Cup_2022_quali/raw/main/subsets/VK_Cup_2022_quali/bert.pt',
-         './subsets/VK_Cup_2022_quali/bert.pt')
+#download('https://github.com/Lojaleto/VK_Cup_2022_quali/raw/main/subsets/VK_Cup_2022_quali/bert.pt',
+#         './subsets/VK_Cup_2022_quali/bert.pt')
 
 #
 df = {}
@@ -132,7 +132,7 @@ classifier.preparation(
 #
 #train loop
 #
-#classifier.train()
+classifier.train()
 
 #
 #check test data
