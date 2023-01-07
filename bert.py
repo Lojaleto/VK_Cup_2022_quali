@@ -179,10 +179,10 @@ class BertClassifier:
             attention_mask=attention_mask.unsqueeze(0)
         )
         
-        prediction = torch.argmax(outputs.logits, dim=1).cpu().numpy()[0]
+        prediction = torch.argmax(outputs.logits, dim=1, return_dict=True).cpu().numpy()[0]
         
         if proba:
-            probabilities = (torch.softmax(outputs.logits, dim=-1).cpu().detach().numpy()[0])[prediction]
+            probabilities = (torch.softmax(outputs.logits, dim=-1, return_dict=True).cpu().detach().numpy()[0])[prediction]
             return prediction, probabilities
         
         return prediction
