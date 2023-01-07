@@ -89,8 +89,8 @@ class BertClassifier:
                 attention_mask=attention_mask
                 )
 
-            preds = torch.argmax(outputs.logits, dim=1)
-            loss = self.loss_fn(outputs.logits, targets)
+            preds = torch.argmax(outputs.logits, dim=1, return_dict=True)
+            loss = self.loss_fn(outputs.logits, targets, return_dict=True)
 
             correct_predictions += torch.sum(preds == targets)
             correct_predictions_vk += torch.sum(preds != targets)
@@ -125,8 +125,8 @@ class BertClassifier:
                     attention_mask=attention_mask
                     )
 
-                preds = torch.argmax(outputs.logits, dim=1)
-                loss = self.loss_fn(outputs.logits, targets)
+                preds = torch.argmax(outputs.logits, dim=1, return_dict=True)
+                loss = self.loss_fn(outputs.logits, targets, return_dict=True)
                 correct_predictions += torch.sum(preds == targets)
                 correct_predictions_vk += torch.sum(preds != targets)
                 losses.append(loss.item())
