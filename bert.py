@@ -86,7 +86,8 @@ class BertClassifier:
 
             outputs = self.model(
                 input_ids=input_ids,
-                attention_mask=attention_mask
+                attention_mask=attention_mask,
+                return_dict=True
                 )
 
             preds = torch.argmax(outputs.logits, dim=1)
@@ -122,7 +123,8 @@ class BertClassifier:
 
                 outputs = self.model(
                     input_ids=input_ids,
-                    attention_mask=attention_mask
+                    attention_mask=attention_mask,
+                    return_dict=True
                     )
 
                 preds = torch.argmax(outputs.logits, dim=1)
@@ -176,7 +178,8 @@ class BertClassifier:
 
         outputs = self.model(
             input_ids=input_ids.unsqueeze(0),
-            attention_mask=attention_mask.unsqueeze(0)
+            attention_mask=attention_mask.unsqueeze(0),
+            return_dict=True
         )
         
         prediction = torch.argmax(outputs.logits, dim=1).cpu().numpy()[0]
